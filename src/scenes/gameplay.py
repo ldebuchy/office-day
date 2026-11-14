@@ -4,9 +4,7 @@ Gère le jeu complet avec building, ascenseur, tâches, etc.
 """
 
 import logging
-import os
 import random
-import tempfile
 import time
 from typing import Optional
 
@@ -26,13 +24,6 @@ from src.world.npc_movement import NPCMovementManager
 from src.world.world_loader import WorldLoader
 
 logger = logging.getLogger(__name__)
-
-try:
-    import moviepy as mpy
-    MOVIEPY_AVAILABLE = True
-except ImportError:
-    MOVIEPY_AVAILABLE = False
-    logger.warning("MoviePy not available, final video will be skipped")
 
 
 class GameplayScene(Scene):
@@ -1028,7 +1019,7 @@ class GameplayScene(Scene):
     def _check_game_end_conditions(self):
         """Vérifie les conditions de fin de jeu."""
         if self.game_clock and self.game_clock.is_deadline():
-            logger.info("Game deadline reached, shaking then fade up then playing final video then going to summary")
+            logger.info("Game deadline reached, shaking then fade up then going to summary")
             screen = pygame.display.get_surface()
             if screen:
                 # Couper toute l'audio (musique et SFX) avant la séquence finale
@@ -1041,7 +1032,6 @@ class GameplayScene(Scene):
                     pass
                 self.shake_screen(screen, duration=2.5, intensity=15)
                 self._fade_up(screen, duration_ms=1200, color=(0, 0, 0))
-                self.play_final_video(screen)
             stats = self._gather_session_stats()
             self.switch_to("summary", stats=stats)
 
@@ -1084,37 +1074,6 @@ class GameplayScene(Scene):
             shake_sound.stop()
         except Exception as e:
             logger.error(f"Error during screen shake: {e}")
-
-    def play_final_video(self, screen):
-        """Joue la vidéo finale avec le son avant le résumé."""
-
-        video_path = os.path.join("assets", "final.mp4")
-        clip = mpy.VideoFileClip(video_path)
-
-        # Exporter l'audio dans un fichier temporaire WAV
-        with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tmp_audio:
-            audio_path = tmp_audio.name
-        clip.audio.write_audiofile(audio_path, fps=44100, logger=None)
-        # Charger et jouer l'audio avec pygame
-        pygame.mixer.init(frequency=44100)
-        sound = pygame.mixer.Sound(audio_path)
-        sound.play()
-
-        # Afficher la vidéo
-        for frame in clip.iter_frames(fps=24, dtype="uint8"):
-            surf = pygame.surfarray.make_surface(frame.swapaxes(0, 1))
-            surf = pygame.transform.scale(surf, (WIDTH, HEIGHT))
-            screen.blit(surf, (0, 0))
-            pygame.display.flip()
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    return
-            time.sleep(1 / 24)
-
-        clip.close()
-        sound.stop()
-        os.remove(audio_path)
 
     def draw(self, screen):
         """Dessine la scène."""

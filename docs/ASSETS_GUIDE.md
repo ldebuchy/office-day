@@ -6,7 +6,6 @@ Ce guide explique l'organisation des assets, les conventions, et comment ajouter
 
 ```
 assets/                     # Dossier principal des assets
-├── final.mp4              # Vidéo de fin
 ├── sprites/               # Sprites des entités et objets
 │   ├── player_idle.png   # Joueur au repos
 │   ├── player_walk.png   # Animation de marche
