@@ -32,31 +32,11 @@
       "frame_h": 180,
       "description": "Ascenseur en cours d'utilisation"
     },
-    "elevator_doors": {
-      "path": "sprites/elevator_doors.png",
-      "frame_w": 96,
-      "frame_h": 180,
-      "description": "Portes d'ascenseur"
-    },
-    "ui_panel": {
-      "path": "ui/panel.png",
-      "frame_w": 200,
-      "frame_h": 100,
-      "description": "Panneau UI générique"
-    },
     "ui_task_icon": {
       "path": "sprites/task_icon.png",
       "frame_w": 32,
       "frame_h": 32,
       "description": "Icône des tâches cliquable"
-    },
-    "office_bg": {
-      "path": "images/wtc.png",
-      "description": "Arrière-plan bureau (existant)"
-    },
-    "menu_bg": {
-      "path": "images/wtc.png", 
-      "description": "Arrière-plan menu (existant)"
     },
     "npc_generic": {
       "path": "sprites/npc_generic.png",
@@ -136,12 +116,6 @@
       "frame_h": 109,
       "description": "Oscar Martinez - Comptable"
     },
-    "employee_13": {
-      "path": "sprites/employee_13.png",
-      "frame_w": 73,
-      "frame_h": 109,
-      "description": "Employee 13 - Réceptionniste"
-    },
     "employee_14": {
       "path": "sprites/employee_14.png",
       "frame_w": 73,
@@ -178,12 +152,6 @@
       "frame_h": 64,
       "description": "Poubelle rouge"
     },
-    "coffee_machine": {
-      "path": "sprites/coffee_machine.png",
-      "frame_w": 64,
-      "frame_h": 80,
-      "description": "Machine à café"
-    },
     "window_marker": {
       "path": "sprites/window_marker.png",
       "frame_w": 32,
@@ -195,12 +163,6 @@
       "frame_w": 24,
       "frame_h": 24,
       "description": "Badge d'accès"
-    },
-    "npc_guard": {
-      "path": "sprites/npc_guard.png",
-      "frame_w": 42,
-      "frame_h": 62,
-      "description": "Agent de sécurité"
     },
     "interactable_plant": {
       "path": "sprites/plant.png",
@@ -301,39 +263,10 @@
       "fps": 8,
       "frames": 4,
       "description": "Animation marche du joueur"
-    },
-    "elevator_animation": {
-      "path": "sprites/elevator_anim.png",
-      "frame_w": 96,
-      "frame_h": 180,
-      "fps": 2,
-      "frames": 2,
-      "description": "Animation ascenseur"
     }
   },
-  "tilesets": {
-    "office_tiles": {
-      "path": "tilesets/office.png",
-      "tile_w": 48,
-      "tile_h": 48,
-      "description": "Tuiles de bureau"
-    },
-    "building_structure": {
-      "path": "tilesets/building.png",
-      "tile_w": 48,
-      "tile_h": 48,
-      "description": "Structure du bâtiment"
-    }
-  },
+  "tilesets": {},
   "backgrounds": {
-    "sky": {
-      "path": "backgrounds/sky.png",
-      "description": "Ciel en arrière-plan"
-    },
-    "city": {
-      "path": "backgrounds/city.png",
-      "description": "Vue de la ville"
-    },
     "floor_90": {
       "path": "backgrounds/floor_90.png",
       "description": "Fond étage 90 - Lobby"
@@ -387,11 +320,6 @@
         "volume": 0.7,
         "description": "Son ding d'ascenseur"
       },
-      "elevator_move": {
-        "path": "sfx/elevator_move.wav",
-        "volume": 0.5,
-        "description": "Son mouvement d'ascenseur"
-      },
       "printer_sound": {
         "path": "sfx/printer.wav",
         "volume": 0.6,
@@ -411,11 +339,6 @@
         "path": "sfx/water_plant.wav",
         "volume": 0.5,
         "description": "Son arroser plante"
-      },
-      "footsteps": {
-        "path": "sfx/footsteps.wav",
-        "volume": 0.3,
-        "description": "Bruits de pas"
       },
       "ui_click": {
         "path": "sfx/ui_click.wav",
@@ -456,32 +379,9 @@
         "path": "sfx/phone_pickup.wav",
         "volume": 0.9,
         "description": "Son de téléphone qui sonne"
-      },
-      "lucky_moments_bg": {
-        "path": "music/Lucky Moments (Remastered).mp3",
-        "volume": 0.01,
-        "description": "Musique d'ambiance Lucky Moments"
       }
     },
     "music": {
-      "ambient_office": {
-        "path": "music/ambient_office.ogg",
-        "volume": 0.3,
-        "loop": true,
-        "description": "Ambiance bureau"
-      },
-      "menu_theme": {
-        "path": "music/menu_theme.ogg",
-        "volume": 0.4,
-        "loop": true,
-        "description": "Musique de menu"
-      },
-      "lucky_moments": {
-        "path": "music/Lucky Moments (Remastered).mp3",
-        "volume": 0.3,
-        "loop": true,
-        "description": "Musique d'ambiance Lucky Moments"
-      },
       "lobby_time": {
         "path": "music/Lobby Time.mp3",
         "volume": 0.9,

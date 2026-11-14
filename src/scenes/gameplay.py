@@ -4,27 +4,27 @@ Gère le jeu complet avec building, ascenseur, tâches, etc.
 """
 
 import logging
+import os
 import random
+import tempfile
+import time
 from typing import Optional
+
 import pygame
-from src.core.scene_manager import Scene
-from src.core.input import InputAction
+
+from src.core.assets import asset_manager
 from src.core.camera import Camera
+from src.core.event_bus import event_bus, TIME_TICK, TIME_REACHED
+from src.core.input import InputAction
+from src.core.scene_manager import Scene
+from src.core.utils import load_json_safe
 from src.settings import WIDTH, HEIGHT, DATA_PATH
-from src.world.world_loader import WorldLoader
-from src.ui.overlay import HUD, NotificationManager
 from src.ui.dialogue import DialogueSystem
+from src.ui.overlay import HUD, NotificationManager
 from src.ui.speech_bubbles import SpeechBubbleManager
 from src.world.npc_movement import NPCMovementManager
-from src.core.utils import load_json_safe
-from src.core.event_bus import event_bus, TIME_TICK, TIME_REACHED
-from src.settings import DATA_PATH
-import tempfile
+from src.world.world_loader import WorldLoader
 
-import os
-import time
-import random
-from typing import Optional
 logger = logging.getLogger(__name__)
 
 try:
@@ -231,7 +231,6 @@ class GameplayScene(Scene):
                 return
             elif event.key == pygame.K_F5:
                 # Recharger les assets avec nouvelles tailles
-                from src.core.assets import asset_manager
                 asset_manager.clear_cache()
                 self.notification_manager.add_notification("Assets rechargés !", 2.0)
                 return
@@ -304,7 +303,6 @@ class GameplayScene(Scene):
         
         # Générer des conversations aléatoires (seulement pour les NPCs en mouvement)
         if self.entity_manager:
-            import time
             # Filtrer pour ne prendre que les NPCs en mouvement (pas les NPCs fixes)
             moving_npcs = []
             player = self.entity_manager.get_player()
@@ -1133,7 +1131,6 @@ class GameplayScene(Scene):
     
     def _draw_world(self, screen):
         """Dessine les éléments du monde avec caméra smooth."""
-        from src.core.assets import asset_manager
         
         if not self.entity_manager or not self.building:
             return
@@ -1302,7 +1299,6 @@ class GameplayScene(Scene):
             screen_y: Position Y de l'étage à l'écran
             floor_height: Hauteur d'un étage
         """
-        from src.core.assets import asset_manager
         
         kind = obj_data.get("kind", "unknown")
         # IMPORTANT : ne JAMAIS dessiner les PNJ ici, ils sont rendus par le manager de mouvement
@@ -1368,7 +1364,6 @@ class GameplayScene(Scene):
         Returns:
             Surface du sprite d'étage ou None si non trouvé
         """
-        from src.core.assets import asset_manager
         
         # Utiliser le nouveau sprite d'étage complet qui inclut l'ascenseur
         try:
@@ -1434,7 +1429,6 @@ class GameplayScene(Scene):
             screen_y: Position Y de l'étage à l'écran
             floor_height: Hauteur d'un étage
         """
-        from src.core.assets import asset_manager
         
         # Choisir le bon sprite selon le type d'objet
         if obj.type == "plant":
@@ -1804,7 +1798,6 @@ class GameplayScene(Scene):
     def _play_sound(self, sound_key: str) -> None:
         """Joue un effet sonore."""
         try:
-            from src.core.assets import asset_manager
             sound = asset_manager.get_sound(sound_key)
             if sound:
                 sound.play()
@@ -1817,7 +1810,6 @@ class GameplayScene(Scene):
     def _start_office_ambiance(self) -> None:
         """Démarre l'ambiance sonore du bureau."""
         try:
-            from src.core.assets import asset_manager
 
             # Démarrer l'ambiance sonore
             sound = asset_manager.get_sound("office_ambiance")
@@ -1877,7 +1869,6 @@ class GameplayScene(Scene):
             floor_num: Numéro de l'étage en cours de rendu
             current_floor: Étage actuel du joueur
         """
-        from src.core.assets import asset_manager
         
         if not self.entity_manager or not self.elevator:
             return
@@ -2008,7 +1999,6 @@ class GameplayScene(Scene):
         npc_name = getattr(npc, 'name', 'Inconnu')
 
         # Utiliser la police UI pour le nom
-        from src.core.assets import asset_manager
         font = asset_manager.get_font("ui_font")
         if not font:
             return

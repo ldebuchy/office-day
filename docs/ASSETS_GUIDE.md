@@ -6,29 +6,25 @@ Ce guide explique l'organisation des assets, les conventions, et comment ajouter
 
 ```
 assets/                     # Dossier principal des assets
+├── final.mp4              # Vidéo de fin
 ├── sprites/               # Sprites des entités et objets
-│   ├── player_idle.png   # Joueur au repos (32x48px)
-│   ├── player_walk.png   # Animation de marche (4 frames)
-│   ├── elevator.png      # Cabine d'ascenseur (64x128px)
-│   ├── npc_generic.png   # NPCs génériques (32x48px)
-│   └── interactable_*.png # Objets interactifs
-├── tilesets/             # Tuiles pour les décors
-│   ├── office.png        # Tuiles de bureau (32x32px)
-│   └── building.png      # Structure du bâtiment
-├── backgrounds/          # Arrière-plans
-│   ├── sky.png          # Ciel
-│   └── city.png         # Vue de la ville
-├── ui/                   # Éléments d'interface
-│   └── panel.png        # Panneau UI générique
-├── fonts/                # Polices (existant)
-│   └── Pixellari.ttf    # Police principale
-├── sfx/                  # Effets sonores
-│   ├── elevator_ding.wav # Son d'ascenseur
-│   ├── printer.wav      # Son d'imprimante
-│   └── footsteps.wav    # Bruits de pas
+│   ├── player_idle.png   # Joueur au repos
+│   ├── player_walk.png   # Animation de marche
+│   ├── elevator_*.png    # Ascenseur (open / close / used)
+│   ├── employee_*.png    # Employés (PNJ)
+│   ├── boss.png, receptionist.png, npc_generic.png
+│   └── desk.png, plant.png, printer.png, ... # Objets interactifs
+├── backgrounds/          # Arrière-plans des étages
+│   ├── floor_90.png, floor_95.png, floor_96.png
+│   ├── floor_default.png
+│   └── floor.jpg
+├── images/
+│   └── wtc.png           # Fond du menu / pause / crédits
+├── fonts/
+│   └── Pixellari.ttf     # Police principale
+├── sfx/                  # Effets sonores (.wav / .mp3)
 └── music/                # Musiques
-    ├── ambient_office.ogg # Ambiance bureau
-    └── menu_theme.ogg    # Musique de menu
+    └── Lobby Time.mp3    # Musique de jeu
 
 aassets/                   # Dossier alternatif (optionnel)
 └── (même structure)      # Assets de remplacement ou additionnels
