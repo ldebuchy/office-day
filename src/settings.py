@@ -17,7 +17,7 @@ GAME_TITLE = "A Day at the Office"
 # Configuration temporelle
 START_TIME = "08:30"
 END_TIME = "08:48"
-GAME_SECONDS_PER_REAL_SECOND = 12
+GAME_SECONDS_PER_REAL_SECOND = 3.6  # 18 min de jeu (08:30 -> 08:48) = 5 min réelles
 
 # Configuration du building
 VISIBLE_FLOOR_RADIUS = 2

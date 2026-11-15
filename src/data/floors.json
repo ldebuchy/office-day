@@ -332,7 +332,7 @@
           "kind": "npc",
           "x": 720,
           "y": 0,
-          "props": {"npc_id": "guard", "name": "Sécurité", "sprite_key": "employee_1"}
+          "props": {"npc_id": "guard", "name": "Ryan", "dialogue_key": "guard_morning", "sprite_key": "employee_1"}
         },
         {
           "id": "plant_lobby1",
