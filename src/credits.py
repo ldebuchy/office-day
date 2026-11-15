@@ -32,7 +32,7 @@ def credits_loop(screen, clock):
         ("Remerciements", "h2"),
         ("ESIEE / Friends / Playtesters", "body"),
         ("La communauté Pygame ", "body"),
-        ("© 2025 Office Day - GameJam Edition", "body"),
+        ("© 2025 Office Day - Édition améliorée par Loic D.", "body"),
     ]
 
     # Bouton Retour

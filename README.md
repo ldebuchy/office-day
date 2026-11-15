@@ -90,3 +90,4 @@ docs/            Asset and sprite guides
 - Created by a team of four students at ESIEE during a 72-hour game jam (2025).
 - Music: *Lobby Time* by Kevin MacLeod, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 - Font: *Pixellari* by Zacchary Dempsey-Plante.
+- AI tools were used during development.
