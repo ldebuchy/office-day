@@ -33,9 +33,9 @@ def test_boss_intro_unlocks_tasks_panel():
 
 def test_time_event_printer_aggravates():
     scene = GameplayScene(SceneManager())
-    scene.game_clock = GameClock("08:30", "08:48", 5.0)
-    # Forcer l'heure à 08:37
-    scene.game_clock.current_time = scene.game_clock._parse_time("08:37")
+    scene.game_clock = GameClock("09:00", "09:18", 5.0)
+    # Forcer l'heure à 09:07
+    scene.game_clock.current_time = scene.game_clock._parse_time("09:07")
     # Avant l'événement
     assert scene._printer_requirement in [2, 3]
     scene._process_timeline_events()

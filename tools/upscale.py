@@ -26,7 +26,7 @@ def upscale_pixelart(input_path, output_path, scale_factor=4):
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print("Usage: python tools/upscale.py <input_file> <output_file> [scale_factor]")
-        print("Example: python tools/upscale.py assets/images/wtc.png assets/images/wtc_upscaled.png 3")
+        print("Example: python tools/upscale.py assets/sprites/plant.png assets/sprites/plant_x3.png 3")
         sys.exit(1)
 
     input_file = sys.argv[1]

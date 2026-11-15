@@ -9,6 +9,8 @@ import math
 from typing import List, Dict, Tuple, Optional
 import pygame
 
+from src.settings import MIN_FLOOR
+
 logger = logging.getLogger(__name__)
 
 
@@ -156,7 +158,7 @@ class NPCMovementManager:
         
         for movement in self.npc_movements.values():
             npc = movement.npc
-            floor = getattr(npc, 'current_floor', 90)
+            floor = getattr(npc, 'current_floor', MIN_FLOOR)
             
             if floor not in npcs_by_floor:
                 npcs_by_floor[floor] = []

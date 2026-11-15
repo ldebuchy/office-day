@@ -18,7 +18,7 @@ assets/                     # Dossier principal des assets
 │   ├── floor_default.png
 │   └── floor.jpg
 ├── images/
-│   └── wtc.png           # Fond du menu / pause / crédits
+│   └── menu_background.png  # Fond du menu / pause / crédits
 ├── fonts/
 │   └── Pixellari.ttf     # Police principale
 ├── sfx/                  # Effets sonores (.wav / .mp3)

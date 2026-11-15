@@ -217,14 +217,14 @@ class SpeechBubbleManager:
     def __init__(self):
         self.bubbles: List[SpeechBubble] = []
         self.random_phrases = [
-            "Tu as reçu l'invite 9h10 ?",
-            "Le ciel est limpide ce matin.",
+            "Tu as reçu l'invite pour 9h30 ?",
+            "Il y a des croissants en salle de pause !",
             "Le flux ascenseur est calme pour une fois.",
-            "On a une livraison de documents vers 9h.",
-            "J'ai un appel avec Boston plus tard.",
+            "On a une livraison de documents vers 10h.",
+            "J'ai un appel avec un client plus tard.",
             "Tu as testé la salle de réunion ?",
             "Ça sent le café tout neuf.",
-            "J'ai vu deux avions très tôt, tu as remarqué ?",
+            "Tu as vu le match hier soir ?",
             "Il fait beau aujourd'hui !",
             "Tu as vu le nouveau projet ?",
             "Le café est vraiment bon ce matin.",

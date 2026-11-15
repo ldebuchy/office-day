@@ -4,7 +4,7 @@
     "game_title": "Office Day",
     "menu": {
       "play": "Jouer",
-      "options": "Options", 
+      "options": "Options",
       "credits": "Crédits",
       "quit": "Quitter"
     },
@@ -29,21 +29,6 @@
       "trophies_earned": "Trophées obtenus",
       "continue": "Continuer"
     }
-  },
-  "content_warning": {
-    "title": "Avertissement de contenu",
-    "message": [
-      "Ce jeu évoque les événements du 11 septembre 2001",
-      "dans le World Trade Center de manière respectueuse.",
-      "",
-      "Il ne contient aucune représentation graphique",
-      "des événements tragiques.",
-      "",
-      "Le jeu s'arrête à 08:48 et se concentre sur",
-      "les petits gestes du quotidien."
-    ],
-    "acknowledge": "J'ai compris",
-    "back": "Retour"
   },
   "tasks": {
     "main_tasks": "Tâches principales",
@@ -144,16 +129,16 @@
       "Merci d'avoir ramené ce badge.",
       "J'ai cru l'entendre tomber près des ascenseurs."
     ],
-    "ambient_subtle_1": [
-      "J'ai reçu un mail pour une conf-call à 9h10.",
+    "ambient_1": [
+      "J'ai reçu un mail pour une conf-call à 9h30.",
       "On va essayer d'être à l'heure, pour une fois."
     ],
-    "ambient_subtle_2": [
-      "Le ciel est parfaitement dégagé aujourd'hui.",
-      "On voit loin depuis ces étages."
+    "ambient_2": [
+      "Le boss a l'air de bonne humeur aujourd'hui.",
+      "C'est le moment de lui demander des congés."
     ],
     "boss_m5": [
-      "La salle doit être prête pour 9h.",
+      "La salle doit être prête pour 9h30.",
       "Tu peux y jeter un œil ?"
     ],
     "alex_copies": [
@@ -163,11 +148,11 @@
       "Ces tasses s'accumulent... Merci !"
     ],
     "office_smalltalk_1": [
-      "Le ciel est d'une clarté rare ce matin.",
-      "On voit très loin d'ici."
+      "La machine à café a enfin été réparée.",
+      "On va pouvoir survivre à la matinée."
     ],
     "office_smalltalk_2": [
-      "Réu à 9h, on vise large.",
+      "Réu à 9h30, on vise large.",
       "Pas une minute de retard."
     ],
     "kelly_offer_coffee": [
@@ -267,13 +252,13 @@
     "task_available": "Nouvelle tâche disponible",
     "trophy_earned": "Trophée obtenu !",
     "elevator_arrived": "Ascenseur arrivé",
-    "time_warning": "Il est bientôt 08:48..."
+    "time_warning": "La matinée touche à sa fin..."
   },
   "floors": {
-    "95": "Ressources Humaines",
-    "96": "Marketing",
-    "97": "IT",
-    "98": "Finance",
-    "99": "Direction"
+    "20": "Ressources Humaines",
+    "21": "Marketing",
+    "22": "IT",
+    "23": "Finance",
+    "24": "Direction"
   }
 }

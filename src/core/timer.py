@@ -1,6 +1,6 @@
 """
 Module de gestion du temps diégétique pour Office Day.
-Horloge qui avance de 08:30 à 08:48 selon GAME_SECONDS_PER_REAL_SECOND.
+Horloge qui avance de 09:00 à 09:18 selon GAME_SECONDS_PER_REAL_SECOND.
 """
 
 from datetime import datetime, timedelta
@@ -23,8 +23,8 @@ class GameClock:
         Initialise l'horloge de jeu.
         
         Args:
-            start_time: Heure de début au format "HH:MM" (ex: "08:30")
-            end_time: Heure de fin au format "HH:MM" (ex: "08:48")  
+            start_time: Heure de début au format "HH:MM" (ex: "09:00")
+            end_time: Heure de fin au format "HH:MM" (ex: "09:18")  
             speed: Facteur de vitesse (secondes de jeu par seconde réelle)
         """
         self.speed = speed
@@ -42,8 +42,8 @@ class GameClock:
         """Parse une chaîne "HH:MM" en datetime."""
         try:
             hour, minute = map(int, time_str.split(':'))
-            # Utilise une date fixe (11 septembre 2001)
-            return datetime(2001, 9, 11, hour, minute, 0)
+            # Date fixe arbitraire (seule l'heure compte)
+            return datetime(2025, 1, 6, hour, minute, 0)
         except ValueError as e:
             logger.error(f"Invalid time format '{time_str}': {e}")
             raise

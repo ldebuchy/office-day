@@ -25,9 +25,9 @@ class InterruptionManager:
         if not self.active:
             return
         time_str = (payload or {}).get("time", "")
-        # Fenêtre plus chargée 08:33–08:40
+        # Fenêtre plus chargée 09:03–09:10
         rate = self.base_rate
-        if "08:33" <= time_str <= "08:40":
+        if "09:03" <= time_str <= "09:10":
             rate *= 2.0
         # Tirage simple
         if random.random() < rate:

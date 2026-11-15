@@ -5,7 +5,7 @@
     "menu": {
       "play": "Play",
       "options": "Options",
-      "credits": "Credits", 
+      "credits": "Credits",
       "quit": "Quit"
     },
     "hud": {
@@ -25,25 +25,10 @@
       "title": "Your Day Summary",
       "time_elapsed": "Time Elapsed",
       "tasks_completed": "Tasks Completed",
-      "total_points": "Total Points", 
+      "total_points": "Total Points",
       "trophies_earned": "Trophies Earned",
       "continue": "Continue"
     }
-  },
-  "content_warning": {
-    "title": "Content Warning",
-    "message": [
-      "This game references the events of September 11, 2001",
-      "at the World Trade Center in a respectful manner.",
-      "",
-      "It contains no graphic depictions",
-      "of the tragic events.",
-      "",
-      "The game stops at 08:48 and focuses on",
-      "small everyday gestures."
-    ],
-    "acknowledge": "I Understand",
-    "back": "Back"
   },
   "tasks": {
     "main_tasks": "Main Tasks",
@@ -197,13 +182,13 @@
     "task_available": "New Task Available",
     "trophy_earned": "Trophy Earned!",
     "elevator_arrived": "Elevator Arrived",
-    "time_warning": "It's almost 08:48..."
+    "time_warning": "The morning is almost over..."
   },
   "floors": {
-    "95": "Human Resources",
-    "96": "Marketing",
-    "97": "IT",
-    "98": "Finance",
-    "99": "Management"
+    "20": "Human Resources",
+    "21": "Marketing",
+    "22": "IT",
+    "23": "Finance",
+    "24": "Management"
   }
 }

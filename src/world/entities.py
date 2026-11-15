@@ -10,7 +10,7 @@ from enum import Enum
 import pygame
 from src.settings import (
     PLAYER_WIDTH, PLAYER_HEIGHT, WIDTH, HEIGHT,
-    WORLD_PX_PER_METER, WALK_SPEED_MPS, PLAYER_TARGET_HEIGHT_RATIO
+    WORLD_PX_PER_METER, WALK_SPEED_MPS, PLAYER_TARGET_HEIGHT_RATIO, MIN_FLOOR
 )
 from src.core.animation import AnimationManager
 from src.core.utils import clamp, normalize_vector, distance
@@ -37,7 +37,7 @@ class Player:
         self.y = y
         # Vitesse exprimée en pixels/seconde (dérivée des mètres/seconde)
         self.speed = WALK_SPEED_MPS * WORLD_PX_PER_METER
-        self.current_floor = 90  # Étage actuel
+        self.current_floor = MIN_FLOOR  # Étage actuel
         
         # État du mouvement
         self.velocity_x = 0.0

@@ -12,17 +12,17 @@ class TestGameClock:
     
     def test_initialization(self):
         """Test de l'initialisation de l'horloge."""
-        clock = GameClock("08:30", "08:48", 5.0)
+        clock = GameClock("09:00", "09:18", 5.0)
         
         assert clock.speed == 5.0
-        assert clock.get_time_str() == "08:30"
+        assert clock.get_time_str() == "09:00"
         assert not clock.is_running
         assert not clock.is_deadline()
         assert clock.get_progress() == 0.0
     
     def test_start_stop(self):
         """Test du démarrage et arrêt."""
-        clock = GameClock("08:30", "08:48")
+        clock = GameClock("09:00", "09:18")
         
         clock.start()
         assert clock.is_running
@@ -32,19 +32,19 @@ class TestGameClock:
     
     def test_tick_progression(self):
         """Test de la progression avec tick."""
-        clock = GameClock("08:30", "08:48", 60.0)  # 1 minute réelle = 1 heure de jeu
+        clock = GameClock("09:00", "09:18", 60.0)  # 1 minute réelle = 1 heure de jeu
         clock.start()
         
         # Simuler 1 seconde réelle (= 1 minute de jeu)
         clock.tick(1.0)
         
-        assert clock.get_time_str() == "08:31"
+        assert clock.get_time_str() == "09:01"
         assert clock.get_progress() > 0.0
         assert not clock.is_deadline()
     
     def test_deadline_reached(self):
         """Test de l'atteinte de la deadline."""
-        clock = GameClock("08:30", "08:48", 1000.0)  # Très rapide
+        clock = GameClock("09:00", "09:18", 1000.0)  # Très rapide
         clock.start()
         
         # Simuler assez de temps pour atteindre la deadline
@@ -56,33 +56,33 @@ class TestGameClock:
     
     def test_reset(self):
         """Test de la remise à zéro."""
-        clock = GameClock("08:30", "08:48", 60.0)
+        clock = GameClock("09:00", "09:18", 60.0)
         clock.start()
         clock.tick(5.0)
         
         # Vérifier qu'on a avancé
-        assert clock.get_time_str() != "08:30"
+        assert clock.get_time_str() != "09:00"
         
         clock.reset()
         
-        assert clock.get_time_str() == "08:30"
+        assert clock.get_time_str() == "09:00"
         assert clock.get_progress() == 0.0
         assert clock.total_real_seconds == 0.0
     
     def test_time_comparisons(self):
         """Test des comparaisons temporelles."""
-        clock = GameClock("08:30", "08:48", 60.0)
+        clock = GameClock("09:00", "09:18", 60.0)
         clock.start()
         clock.tick(2.0)  # Avancer de 2 minutes de jeu
         
-        assert clock.is_time_after("08:30")
-        assert clock.is_time_before("08:48")
-        assert not clock.is_time_before("08:30")
-        assert not clock.is_time_after("08:48")
+        assert clock.is_time_after("09:00")
+        assert clock.is_time_before("09:18")
+        assert not clock.is_time_before("09:00")
+        assert not clock.is_time_after("09:18")
     
     def test_remaining_time(self):
         """Test du calcul du temps restant."""
-        clock = GameClock("08:30", "08:48", 60.0)  # 18 minutes de jeu
+        clock = GameClock("09:00", "09:18", 60.0)  # 18 minutes de jeu
         clock.start()
         clock.tick(5.0)  # 5 minutes de jeu écoulées
         
@@ -95,34 +95,34 @@ class TestGameClock:
     def test_invalid_time_format(self):
         """Test avec format d'heure invalide."""
         with pytest.raises(ValueError):
-            GameClock("25:00", "08:48")
+            GameClock("25:00", "09:18")
         
         with pytest.raises(ValueError):
-            GameClock("08:30", "invalid")
+            GameClock("09:00", "invalid")
     
     def test_format_time(self):
         """Test du formatage des heures."""
-        clock = GameClock("08:30", "08:48")
+        clock = GameClock("09:00", "09:18")
         
         # Test avec heure actuelle
         formatted = clock.format_time()
-        assert formatted == "08:30"
+        assert formatted == "09:00"
         
         # Test avec heure spécifique
-        test_time = datetime(2001, 9, 11, 10, 15, 30)
+        test_time = datetime(2025, 1, 6, 10, 15, 30)
         formatted = clock.format_time(test_time)
         assert formatted == "10:15"
     
     def test_speed_effects(self):
         """Test des effets de la vitesse."""
         # Horloge lente
-        slow_clock = GameClock("08:30", "08:48", 1.0)
+        slow_clock = GameClock("09:00", "09:18", 1.0)
         slow_clock.start()
         slow_clock.tick(1.0)
         slow_time = slow_clock.get_time()
         
         # Horloge rapide
-        fast_clock = GameClock("08:30", "08:48", 10.0)
+        fast_clock = GameClock("09:00", "09:18", 10.0)
         fast_clock.start()
         fast_clock.tick(1.0)
         fast_time = fast_clock.get_time()
@@ -132,7 +132,7 @@ class TestGameClock:
     
     def test_pause_resume(self):
         """Test de la pause et reprise."""
-        clock = GameClock("08:30", "08:48", 60.0)
+        clock = GameClock("09:00", "09:18", 60.0)
         clock.start()
         
         # Avancer un peu

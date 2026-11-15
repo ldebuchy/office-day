@@ -1,5 +1,5 @@
 """
-Génère le fond pixel art du menu (assets/images/wtc.png).
+Génère le fond pixel art du menu (assets/images/menu_background.png).
 
 L'image est dessinée en basse résolution puis agrandie sans lissage,
 pour obtenir des pixels nets et exactement la taille de la fenêtre du jeu.
@@ -26,10 +26,7 @@ FAR_WINDOW = (134, 166, 190)
 MID = [(46, 76, 108), (56, 88, 122), (40, 66, 96)]
 MID_WINDOW = (76, 110, 142)
 LIT_WINDOW = (226, 206, 158)
-TOWER_DARK = (58, 84, 114)
-TOWER_MID = (88, 118, 148)
-TOWER_LIGHT = (196, 202, 196)
-TOWER_BAND = (70, 98, 128)
+SHORE = (70, 98, 128)
 WATER = [(40, 70, 100), (34, 62, 90), (30, 54, 80)]
 WATER_SHINE = (92, 130, 160)
 
@@ -74,35 +71,12 @@ def draw_far_skyline(d: ImageDraw.ImageDraw, rng: random.Random) -> None:
         x += w + rng.randint(0, 2)
 
 
-def draw_tower(d: ImageDraw.ImageDraw, x: int, top: int, width: int, antenna: int) -> None:
-    """Une tour : colonnes verticales serrées, côté éclairé à gauche, étages techniques."""
-    for col in range(width):
-        if col == 0:
-            color = TOWER_LIGHT
-        elif col < width // 2:
-            color = TOWER_MID if col % 2 else TOWER_LIGHT
-        else:
-            color = TOWER_DARK if col % 2 else TOWER_MID
-        d.line((x + col, top, x + col, HORIZON - 1), fill=color)
-    # Étages techniques (bandes horizontales)
-    height = HORIZON - top
-    for ratio in (0.22, 0.58):
-        y = top + int(height * ratio)
-        d.line((x, y, x + width - 1, y), fill=TOWER_BAND)
-    d.line((x, top, x + width - 1, top), fill=TOWER_BAND)
-    if antenna:
-        ax = x + width // 2
-        d.line((ax, top - antenna, ax, top - 1), fill=TOWER_DARK)
-        d.rectangle((ax - 1, top - 3, ax + 1, top - 1), fill=TOWER_DARK)
-
-
-def draw_mid_skyline(d: ImageDraw.ImageDraw, rng: random.Random, avoid: tuple[int, int]) -> None:
-    """Immeubles au premier plan, plus bas devant les tours."""
+def draw_mid_skyline(d: ImageDraw.ImageDraw, rng: random.Random) -> None:
+    """Immeubles de bureaux au premier plan."""
     x = 0
     while x < LOW_W:
         w = rng.randint(8, 18)
-        in_front_of_towers = x + w > avoid[0] and x < avoid[1]
-        h = rng.randint(8, 18) if in_front_of_towers else rng.randint(14, 44)
+        h = rng.randint(14, 48)
         top = HORIZON - h
         color = rng.choice(MID)
         d.rectangle((x, top, x + w - 1, HORIZON - 1), fill=color)
@@ -126,7 +100,7 @@ def draw_water(img: Image.Image, d: ImageDraw.ImageDraw, rng: random.Random) -> 
     for y in range(HORIZON, LOW_H):
         band = min((y - HORIZON) * len(WATER) // rows, len(WATER) - 1)
         d.line((0, y, LOW_W - 1, y), fill=WATER[band])
-    d.line((0, HORIZON, LOW_W - 1, HORIZON), fill=TOWER_BAND)
+    d.line((0, HORIZON, LOW_W - 1, HORIZON), fill=SHORE)
     # Reflet : on recopie la ligne d'horizon assombrie, une ligne sur deux, décalée
     for i, y in enumerate(range(HORIZON + 2, min(HORIZON + 14, LOW_H), 2)):
         shift = rng.randint(-1, 1)
@@ -151,13 +125,7 @@ def generate(seed: int) -> Image.Image:
         draw_cloud(d, rng, cx, cy, size)
     draw_far_skyline(d, rng)
 
-    # Tours jumelles, décalées à gauche pour ne pas être cachées par les boutons du menu
-    tower_w, gap = 12, 5
-    left = 70
-    draw_tower(d, left, 28, tower_w, antenna=18)
-    draw_tower(d, left + tower_w + gap, 31, tower_w, antenna=0)
-
-    draw_mid_skyline(d, rng, avoid=(left - 4, left + 2 * tower_w + gap + 4))
+    draw_mid_skyline(d, rng)
     draw_water(img, d, rng)
 
     return img.resize((LOW_W * SCALE, LOW_H * SCALE), Image.NEAREST)
@@ -166,8 +134,9 @@ def generate(seed: int) -> Image.Image:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[1])
     parser.add_argument("--seed", type=int, default=2025)
-    parser.add_argument("--out", type=Path, default=Path("assets/images/wtc.png"))
+    parser.add_argument("--out", type=Path, default=Path("assets/images/menu_background.png"))
     args = parser.parse_args()
+    args.out.parent.mkdir(parents=True, exist_ok=True)
     generate(args.seed).save(args.out)
     print(f"Fond généré : {args.out} ({LOW_W * SCALE}x{LOW_H * SCALE})")
 

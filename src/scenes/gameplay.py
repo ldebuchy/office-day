@@ -1019,61 +1019,61 @@ class GameplayScene(Scene):
     def _check_game_end_conditions(self):
         """Vérifie les conditions de fin de jeu."""
         if self.game_clock and self.game_clock.is_deadline():
-            logger.info("Game deadline reached, shaking then fade up then going to summary")
+            logger.info("Game deadline reached, end-of-morning banner then fade then summary")
             screen = pygame.display.get_surface()
             if screen:
-                # Couper toute l'audio (musique et SFX) avant la séquence finale
+                audio_manager = self.scene_manager.context.get("audio_manager")
                 try:
-                    audio_manager = self.scene_manager.context.get("audio_manager")
                     if audio_manager:
                         audio_manager.stop_music()
                     pygame.mixer.stop()
-                except Exception:
-                    pass
-                self.shake_screen(screen, duration=2.5, intensity=15)
-                self._fade_up(screen, duration_ms=1200, color=(0, 0, 0))
+                    chime = pygame.mixer.Sound("assets/sfx/elevator_ding.wav")
+                    chime.set_volume(0.6)
+                    chime.play()
+                except Exception as e:
+                    logger.warning(f"Could not play end-of-morning chime: {e}")
+                self._show_end_of_morning_banner(screen, duration_ms=2000)
+                self._fade_out(screen, duration_ms=1200)
             stats = self._gather_session_stats()
             self.switch_to("summary", stats=stats)
 
-    def _fade_up(self, screen, duration_ms=900, color=(0, 0, 0)):
-        """Transition fade up (noir qui monte du bas vers le haut)."""
+    def _show_end_of_morning_banner(self, screen, duration_ms=2000):
+        """Affiche un bandeau « Fin de la matinée » par-dessus la scène figée."""
         W, H = screen.get_size()
+        background = screen.copy()
+        font = asset_manager.get_font("title_font")
+        text = font.render("Fin de la matinée !", True, (255, 255, 255))
+        banner = pygame.Surface((W, text.get_height() + 40), pygame.SRCALPHA)
+        banner.fill((0, 0, 0, 170))
+        banner_y = (H - banner.get_height()) // 2
         clock = pygame.time.Clock()
         t0 = pygame.time.get_ticks()
-        running = True
-        while running:
-            t = (pygame.time.get_ticks() - t0) / duration_ms
-            if t >= 1.0:
-                t = 1.0
-                running = False
-            h = int(H * t)
-            overlay = pygame.Surface((W, h))
-            overlay.fill(color)
-            screen.blit(overlay, (0, H - h))
+        while pygame.time.get_ticks() - t0 < duration_ms:
+            pygame.event.pump()  # Garde la fenêtre réactive pendant la séquence
+            screen.blit(background, (0, 0))
+            screen.blit(banner, (0, banner_y))
+            screen.blit(text, text.get_rect(center=(W // 2, H // 2)))
             pygame.display.flip()
             clock.tick(60)
 
-    def shake_screen(self, screen, duration=1.5, intensity=12, sound_path="assets/sfx/tremblement.mp3"):
-        """Effet de tremblement sur tout l'écran avec un son."""
-        try:
-            # Charger et jouer le son de tremblement
-            pygame.mixer.init()
-            shake_sound = pygame.mixer.Sound(sound_path)
-            shake_sound.play(-1)  # -1 pour boucle pendant la durée
-
-            clock = pygame.time.Clock()
-            start = time.time()
-            original = screen.copy()
-            while time.time() - start < duration:
-                offset_x = int((pygame.time.get_ticks() % intensity) - intensity // 2)
-                offset_y = int((pygame.time.get_ticks() * 1.5 % intensity) - intensity // 2)
-                screen.fill((0, 0, 0))
-                screen.blit(original, (offset_x, offset_y))
-                pygame.display.flip()
-                clock.tick(60)
-            shake_sound.stop()
-        except Exception as e:
-            logger.error(f"Error during screen shake: {e}")
+    def _fade_out(self, screen, duration_ms=1200, color=(0, 0, 0)):
+        """Fondu progressif vers une couleur unie."""
+        W, H = screen.get_size()
+        background = screen.copy()
+        overlay = pygame.Surface((W, H))
+        overlay.fill(color)
+        clock = pygame.time.Clock()
+        t0 = pygame.time.get_ticks()
+        while True:
+            pygame.event.pump()
+            t = min(1.0, (pygame.time.get_ticks() - t0) / duration_ms)
+            overlay.set_alpha(int(255 * t))
+            screen.blit(background, (0, 0))
+            screen.blit(overlay, (0, 0))
+            pygame.display.flip()
+            if t >= 1.0:
+                break
+            clock.tick(60)
 
     def draw(self, screen):
         """Dessine la scène."""
@@ -1670,10 +1670,10 @@ class GameplayScene(Scene):
     def _process_timeline_events(self):
         """
         Hook explicite (tests) pour appliquer des effets en fonction de l'heure.
-        - 08:37: l'imprimante devient plus exigeante si non réglée.
+        - 09:07: l'imprimante devient plus exigeante si non réglée.
         """
         try:
-            if self.game_clock and self.game_clock.get_time_str() >= "08:37":
+            if self.game_clock and self.game_clock.get_time_str() >= "09:07":
                 self._printer_requirement = 3
         except Exception:
             pass

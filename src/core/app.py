@@ -104,14 +104,12 @@ class Game:
         """Enregistre toutes les scènes du jeu."""
         try:
             # Import des scènes (import tardif pour éviter les dépendances circulaires)
-            from src.scenes.content_warning import ContentWarningScene
             from src.scenes.menu import MenuScene
             from src.scenes.gameplay import GameplayScene
             from src.scenes.pause import PauseScene
             from src.scenes.summary import SummaryScene
             
             # Enregistrement
-            self.scene_manager.register_scene("content_warning", ContentWarningScene)
             self.scene_manager.register_scene("menu", MenuScene)
             self.scene_manager.register_scene("gameplay", GameplayScene)
             self.scene_manager.register_scene("pause", PauseScene)
@@ -128,7 +126,6 @@ class Game:
         """Enregistre des scènes de fallback en cas d'erreur d'import."""
         from src.scenes.fallback import FallbackMenuScene, FallbackGameScene
         
-        self.scene_manager.register_scene("content_warning", FallbackMenuScene)
         self.scene_manager.register_scene("menu", FallbackMenuScene)
         self.scene_manager.register_scene("gameplay", FallbackGameScene)
         
@@ -200,7 +197,7 @@ class Game:
             # Fermer le menu pause
             self.scene_manager.pop_scene()
             self.paused = False
-        elif current_scene in ["menu", "content_warning"]:
+        elif current_scene == "menu":
             # Quitter le jeu
             self.quit()
     

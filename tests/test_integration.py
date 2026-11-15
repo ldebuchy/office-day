@@ -44,12 +44,12 @@ def test_building_floor_order():
     
     # Données de test
     floors_data = {
-        "min_floor": 90,
-        "max_floor": 95,
+        "min_floor": 20,
+        "max_floor": 25,
         "floors": {
-            "90": {"name": "Lobby", "objects": []},
-            "95": {"name": "Top", "objects": []},
-            "92": {"name": "Middle", "objects": []}
+            "20": {"name": "Lobby", "objects": []},
+            "25": {"name": "Top", "objects": []},
+            "22": {"name": "Middle", "objects": []}
         }
     }
     
@@ -57,14 +57,14 @@ def test_building_floor_order():
     assert success
     
     # Vérifier que min_floor et max_floor sont correctement définis
-    assert building.min_floor == 90
-    assert building.max_floor == 95
+    assert building.min_floor == 20
+    assert building.max_floor == 25
     
     # Vérifier que les étages sont chargés
-    assert building.has_floor(90)
-    assert building.has_floor(92)
-    assert building.has_floor(95)
-    assert not building.has_floor(91)
+    assert building.has_floor(20)
+    assert building.has_floor(22)
+    assert building.has_floor(25)
+    assert not building.has_floor(21)
 
 
 def test_icon_button_creation():
@@ -129,7 +129,7 @@ def test_floor_background_loading():
         "objects": []
     }
     
-    floor = Floor(98, floor_data)
+    floor = Floor(23, floor_data)
     assert floor.bg_key == "floor_98"
     assert floor.background_surface is None  # Pas encore chargé
     

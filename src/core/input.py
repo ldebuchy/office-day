@@ -8,6 +8,8 @@ from typing import Dict, Set, Optional, Callable, Any
 from enum import Enum
 import pygame
 
+from src.settings import MIN_FLOOR
+
 logger = logging.getLogger(__name__)
 
 
@@ -92,7 +94,7 @@ class InputManager:
             pygame.K_F1: InputAction.DEBUG_TOGGLE,
             pygame.K_F5: InputAction.RELOAD_ASSETS,
             
-            # Chiffres pour étages (mapper vers 90-99)
+            # Chiffres pour étages (0 = étage le plus bas)
             pygame.K_0: InputAction.FLOOR_0,
             pygame.K_1: InputAction.FLOOR_1,
             pygame.K_2: InputAction.FLOOR_2,
@@ -221,7 +223,7 @@ class InputManager:
     def get_floor_from_number_key(self) -> Optional[int]:
         """
         Retourne l'étage correspondant à la touche chiffre pressée.
-        Mappe 0-9 vers les étages 90-99.
+        Mappe 0-9 vers les étages à partir de MIN_FLOOR.
         
         Returns:
             Numéro d'étage ou None si aucune touche chiffre pressée
@@ -229,7 +231,7 @@ class InputManager:
         for i in range(10):
             action = InputAction(f"floor_{i}")
             if self.is_action_pressed(action):
-                return 90 + i
+                return MIN_FLOOR + i
         return None
     
     def is_mouse_pressed(self, button: int = 1) -> bool:

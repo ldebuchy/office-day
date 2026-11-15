@@ -112,11 +112,11 @@ class PauseScene(Scene):
     
     def draw(self, screen):
         """Dessine la scène."""
-        # Arrière-plan wtc.png
+        # Arrière-plan du menu
         try:
-            wtc_bg = pygame.image.load("assets/images/wtc.png").convert()
-            wtc_bg = pygame.transform.scale(wtc_bg, (WIDTH, HEIGHT))
-            screen.blit(wtc_bg, (0, 0))
+            menu_bg = pygame.image.load("assets/images/menu_background.png").convert()
+            menu_bg = pygame.transform.scale(menu_bg, (WIDTH, HEIGHT))
+            screen.blit(menu_bg, (0, 0))
         except:
             # Fallback vers fond noir
             screen.fill((0, 0, 0))

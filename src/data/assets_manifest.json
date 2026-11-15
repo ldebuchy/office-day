@@ -269,23 +269,23 @@
   "backgrounds": {
     "floor_90": {
       "path": "backgrounds/floor_90.png",
-      "description": "Fond étage 90 - Lobby"
+      "description": "Fond étage par défaut"
     },
     "floor_95": {
       "path": "backgrounds/floor_95.png",
-      "description": "Fond étage 95 - Accueil"
+      "description": "Fond étage 20 - Accueil"
     },
     "floor_96": {
       "path": "backgrounds/floor_96.png",
-      "description": "Fond étage 96 - Bureaux"
+      "description": "Fond étage 21 - Bureaux"
     },
     "floor_97_open": {
       "path": "backgrounds/floor_97.png",
-      "description": "Fond étage 97 - Open-space"
+      "description": "Fond étage 22 - Open-space"
     },
     "floor_98_boss": {
       "path": "backgrounds/floor_98.png",
-      "description": "Fond étage 98 - Bureau du boss"
+      "description": "Fond étage 23 - Bureau du boss"
     },
     "floor_default": {
       "path": "backgrounds/floor_default.png",

@@ -8,7 +8,7 @@ import pygame
 from src.core.scene_manager import Scene
 from src.core.assets import asset_manager
 from src.core.utils import load_json_safe, draw_text_centered
-from src.settings import WIDTH, HEIGHT, UI_PANEL, UI_TEXT, UI_HOVER, DATA_PATH
+from src.settings import WIDTH, HEIGHT, UI_PANEL, UI_TEXT, UI_HOVER, DATA_PATH, END_TIME
 
 logger = logging.getLogger(__name__)
 
@@ -233,11 +233,10 @@ class SummaryScene(Scene):
         # Message contextuel (centré)
         if self.font_body and alpha > 150:
             context_lines = [
-                "Il est maintenant 08:48.",
-                "Votre journée de travail s'arrête ici.",
+                f"Il est {END_TIME}, la matinée est terminée.",
+                "Voici le bilan de votre début de journée.",
                 "",
-                "Merci d'avoir pris le temps de vivre ces petits moments,",
-                "ces gestes ordinaires qui composent nos vies."
+                "Merci d'avoir joué !"
             ]
             for line in context_lines:
                 if line.strip():

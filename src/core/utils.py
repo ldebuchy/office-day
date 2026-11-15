@@ -10,6 +10,8 @@ import pygame
 from pathlib import Path
 import re
 
+from src.settings import MIN_FLOOR
+
 logger = logging.getLogger(__name__)
 
 
@@ -330,14 +332,14 @@ def get_floor_number_from_key(key_action: str) -> Optional[int]:
         key_action: Action de la forme "floor_X"
         
     Returns:
-        Numéro d'étage (90-99) ou None
+        Numéro d'étage (à partir de MIN_FLOOR) ou None
     """
     if not key_action.startswith("floor_"):
         return None
     
     try:
         digit = int(key_action.split("_")[1])
-        return 90 + digit
+        return MIN_FLOOR + digit
     except (IndexError, ValueError):
         return None
 

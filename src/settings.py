@@ -15,14 +15,14 @@ WHITE = (255, 255, 255)
 GAME_TITLE = "Office Day"
 
 # Configuration temporelle
-START_TIME = "08:30"
-END_TIME = "08:48"
-GAME_SECONDS_PER_REAL_SECOND = 3.6  # 18 min de jeu (08:30 -> 08:48) = 5 min réelles
+START_TIME = "09:00"
+END_TIME = "09:18"
+GAME_SECONDS_PER_REAL_SECOND = 3.6  # 18 min de jeu (09:00 -> 09:18) = 5 min réelles
 
 # Configuration du building
 VISIBLE_FLOOR_RADIUS = 2
-MIN_FLOOR = 90
-MAX_FLOOR = 98
+MIN_FLOOR = 20
+MAX_FLOOR = 24
 ELEVATOR_POSITION_X = 64
 
 # Dimensions des entités

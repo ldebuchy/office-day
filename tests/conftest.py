@@ -21,7 +21,7 @@ def sample_task_data():
                 "title": "Arroser la plante",
                 "description": "La plante du bureau de direction a l'air assoiffée.",
                 "type": "interaction",
-                "floor": 98,
+                "floor": 23,
                 "interactable_id": "plant_98",
                 "reward_points": 10,
                 "dependencies": [],
@@ -32,7 +32,7 @@ def sample_task_data():
                 "title": "Ranger les papiers",
                 "description": "Des documents traînent sur le bureau.",
                 "type": "interaction",
-                "floor": 98,
+                "floor": 23,
                 "interactable_id": "papers_98",
                 "reward_points": 8,
                 "dependencies": [],
@@ -45,7 +45,7 @@ def sample_task_data():
                 "title": "Parler au patron",
                 "description": "M. Johnson souhaite vous voir.",
                 "type": "dialogue",
-                "floor": 98,
+                "floor": 23,
                 "npc_id": "boss",
                 "reward_points": 5,
                 "dependencies": ["organize_papers", "water_plant"],
@@ -59,12 +59,12 @@ def sample_task_data():
 def sample_floors_data():
     """Données d'étages pour les tests."""
     return {
-        "min_floor": 90,
-        "max_floor": 98,
+        "min_floor": 20,
+        "max_floor": 23,
         "elevator_position_x": 64,
         "floor_height": 120,
         "floors": {
-            "98": {
+            "23": {
                 "name": "Direction",
                 "rooms": ["office_director", "meeting_room"],
                 "interactables": [
@@ -93,7 +93,7 @@ def sample_floors_data():
                     }
                 ]
             },
-            "90": {
+            "20": {
                 "name": "Lobby",
                 "rooms": ["lobby", "reception"],
                 "interactables": [

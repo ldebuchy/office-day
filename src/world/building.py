@@ -248,8 +248,8 @@ class Building:
         self.floor_height = 120  # Hauteur d'un étage en pixels
         
         # Limites du bâtiment
-        self.min_floor = 90
-        self.max_floor = 98
+        self.min_floor = MIN_FLOOR
+        self.max_floor = MAX_FLOOR
         
         # Statistiques
         self.floors_visited: set[int] = set()
@@ -270,8 +270,8 @@ class Building:
             # Paramètres globaux
             self.elevator_x = safe_get(floors_data, "elevator_position_x", 64)
             self.floor_height = safe_get(floors_data, "floor_height", 120)
-            self.min_floor = safe_get(floors_data, "min_floor", 90)
-            self.max_floor = safe_get(floors_data, "max_floor", 98)
+            self.min_floor = safe_get(floors_data, "min_floor", MIN_FLOOR)
+            self.max_floor = safe_get(floors_data, "max_floor", MAX_FLOOR)
             
             # Charger chaque étage
             floors_config = safe_get(floors_data, "floors", {})

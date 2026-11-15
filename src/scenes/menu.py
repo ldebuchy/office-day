@@ -52,12 +52,12 @@ class MenuScene(Scene):
             except:
                 self.font = pygame.font.SysFont(None, 60)
         
-        # Charger l'arrière-plan wtc.png directement
+        # Charger l'arrière-plan du menu
         try:
-            self.background = pygame.image.load("assets/images/wtc.png").convert()
+            self.background = pygame.image.load("assets/images/menu_background.png").convert()
             self.background = pygame.transform.scale(self.background, (WIDTH, HEIGHT))
         except Exception as e:
-            logger.error(f"Error loading wtc.png: {e}")
+            logger.error(f"Error loading menu background: {e}")
             # Créer un fond de couleur simple
             self.background = pygame.Surface((WIDTH, HEIGHT))
             self.background.fill((50, 50, 100))

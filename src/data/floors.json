@@ -1,12 +1,12 @@
 {
   "description": "Configuration des étages du building avec fonds et objets positionnés",
-  "min_floor": 95,
-  "max_floor": 99,
+  "min_floor": 20,
+  "max_floor": 24,
   "elevator_position_x": 64,
   "floor_height": 150,
   "default_bg_key": "floor_default",
   "floors": {
-    "99": {
+    "24": {
       "name": "Direction",
       "bg_key": "floor_98_boss",
       "rooms": ["office_director", "meeting_room"],
@@ -62,7 +62,7 @@
         }
       ]
     },
-    "98": {
+    "23": {
       "name": "Finance",
       "bg_key": "floor_95",
       "rooms": ["office_hr", "archive_room"],
@@ -217,7 +217,7 @@
         }
       ]
     },
-    "97": {
+    "22": {
       "name": "IT",
       "bg_key": "floor_96",
       "rooms": ["hallway", "office_open"],
@@ -259,7 +259,7 @@
         }
       ]
     },
-    "96": {
+    "21": {
       "name": "Marketing",
       "bg_key": "floor_97_open",
       "rooms": ["office_accounting", "office_small"],
@@ -294,7 +294,7 @@
         }
       ]
     },
-    "95": {
+    "20": {
       "name": "Ressources Humaines",
       "bg_key": "floor_90",
       "rooms": ["lobby", "reception"],
