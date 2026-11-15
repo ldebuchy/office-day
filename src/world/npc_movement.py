@@ -1,5 +1,5 @@
 """
-Système de déplacement des NPCs pour A Day at the Office.
+Système de déplacement des NPCs pour Office Day.
 Gère le mouvement semi-aléatoire des NPCs avec évitement des collisions.
 """
 

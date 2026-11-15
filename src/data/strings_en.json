@@ -1,7 +1,7 @@
 {
   "description": "English localization strings",
   "ui": {
-    "game_title": "A Day at the Office",
+    "game_title": "Office Day",
     "menu": {
       "play": "Play",
       "options": "Options",

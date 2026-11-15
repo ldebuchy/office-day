@@ -1,5 +1,5 @@
 """
-Module de gestion du temps diégétique pour A Day at the Office.
+Module de gestion du temps diégétique pour Office Day.
 Horloge qui avance de 08:30 à 08:48 selon GAME_SECONDS_PER_REAL_SECOND.
 """
 

@@ -1,5 +1,5 @@
 """
-Système de dialogue pour A Day at the Office.
+Système de dialogue pour Office Day.
 Gère les conversations avec les NPCs et les messages contextuels.
 """
 

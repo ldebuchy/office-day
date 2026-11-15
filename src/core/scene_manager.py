@@ -1,5 +1,5 @@
 """
-Gestionnaire de scènes pour A Day at the Office.
+Gestionnaire de scènes pour Office Day.
 Permet de basculer entre menu, gameplay, pause, summary, etc.
 """
 

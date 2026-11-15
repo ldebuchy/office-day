@@ -1,5 +1,5 @@
 """
-Scène d'avertissement de contenu pour A Day at the Office.
+Scène d'avertissement de contenu pour Office Day.
 Informe respectueusement le joueur du contexte historique.
 """
 

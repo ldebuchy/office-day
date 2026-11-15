@@ -1,1 +1,1 @@
-# UI modules for A Day at the Office
+# UI modules for Office Day

@@ -1,5 +1,5 @@
 """
-Système de triggers et zones d'interaction pour A Day at the Office.
+Système de triggers et zones d'interaction pour Office Day.
 Gère les zones spéciales, événements automatiques, et interactions contextuelles.
 """
 

@@ -1,5 +1,5 @@
 """
-Système de tâches pour A Day at the Office.
+Système de tâches pour Office Day.
 Gère les tâches principales et annexes, dépendances, et progression.
 """
 

@@ -1,1 +1,1 @@
-# Core modules for A Day at the Office
+# Core modules for Office Day

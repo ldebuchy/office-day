@@ -1,5 +1,5 @@
 """
-Classe principale de l'application A Day at the Office.
+Classe principale de l'application Office Day.
 Gère l'initialisation, la boucle principale, et l'intégration des systèmes.
 """
 
@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 
 class Game:
     """
-    Classe principale du jeu A Day at the Office.
+    Classe principale du jeu Office Day.
     
     Gère l'initialisation de pygame, la boucle principale,
     et coordonne tous les systèmes (scènes, assets, timer, etc.).

@@ -1,5 +1,5 @@
 """
-Tests d'intégration pour les nouvelles fonctionnalités de A Day at the Office.
+Tests d'intégration pour les nouvelles fonctionnalités de Office Day.
 """
 
 import sys

@@ -1,5 +1,5 @@
 """
-Interface utilisateur overlay pour A Day at the Office.
+Interface utilisateur overlay pour Office Day.
 Gère l'affichage de l'horloge, des tâches, et des informations contextuelles.
 """
 

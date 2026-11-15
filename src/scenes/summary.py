@@ -1,5 +1,5 @@
 """
-Scène de résumé final pour A Day at the Office.
+Scène de résumé final pour Office Day.
 Affiche les trophées, statistiques, et un message respectueux.
 """
 

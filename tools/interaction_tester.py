@@ -17,7 +17,7 @@ def main():
     """Test des interactions et dialogues."""
     pygame.init()
     screen = pygame.display.set_mode((1200, 600))
-    pygame.display.set_caption("Test Interactions - A Day at the Office")
+    pygame.display.set_caption("Test Interactions - Office Day")
     
     print("🎮 Test des Interactions")
     print("========================")

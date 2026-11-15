@@ -1,4 +1,4 @@
-# Guide des Assets - A Day at the Office
+# Guide des Assets - Office Day
 
 Ce guide explique l'organisation des assets, les conventions, et comment ajouter de nouveaux éléments au jeu.
 
@@ -90,7 +90,7 @@ Le fichier `src/data/assets_manifest.json` définit tous les assets :
 ```json
 {
   "version": 1,
-  "description": "Manifest des assets pour A Day at the Office",
+  "description": "Manifest des assets pour Office Day",
   "images": {
     "player_idle": {
       "path": "sprites/player_idle.png",

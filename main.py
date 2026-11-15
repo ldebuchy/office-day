@@ -1,5 +1,5 @@
 """
-Point d'entrée principal pour A Day at the Office.
+Point d'entrée principal pour Office Day.
 """
 
 import logging
@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 def main():
     """Point d'entrée principal du jeu."""
-    logger.info("Starting A Day at the Office")
+    logger.info("Starting Office Day")
     Game().run()
 
 

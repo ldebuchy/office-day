@@ -1,5 +1,5 @@
 """
-Système d'animation pour A Day at the Office.
+Système d'animation pour Office Day.
 Gère les spritesheets et animations temporelles.
 """
 

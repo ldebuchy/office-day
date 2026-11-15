@@ -1,5 +1,5 @@
 """
-Chargeur du monde de jeu pour A Day at the Office.
+Chargeur du monde de jeu pour Office Day.
 Initialise le bâtiment, les tâches, et coordonne tous les systèmes world.
 """
 

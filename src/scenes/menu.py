@@ -1,5 +1,5 @@
 """
-Scène de menu principal adaptée pour A Day at the Office.
+Scène de menu principal adaptée pour Office Day.
 Adaptation du menu existant au nouveau système de scènes.
 """
 

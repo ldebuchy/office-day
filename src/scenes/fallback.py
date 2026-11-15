@@ -37,7 +37,7 @@ class FallbackMenuScene(Scene):
         screen.fill(BLACK)
         
         if self.font:
-            title = self.font.render("A Day at the Office", True, WHITE)
+            title = self.font.render("Office Day", True, WHITE)
             title_rect = title.get_rect(center=(WIDTH//2, HEIGHT//2 - 50))
             screen.blit(title, title_rect)
             

@@ -1,5 +1,5 @@
 """
-Système de caméra avec lissage pour A Day at the Office.
+Système de caméra avec lissage pour Office Day.
 Gère le défilement fluide lors des déplacements d'étage.
 """
 

@@ -1,5 +1,5 @@
 """
-Gestionnaire d'entrées centralisé pour A Day at the Office.
+Gestionnaire d'entrées centralisé pour Office Day.
 Gère les entrées clavier et souris avec mapping configurable.
 """
 

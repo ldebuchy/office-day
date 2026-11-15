@@ -1,5 +1,5 @@
 """
-Utilitaires généraux pour A Day at the Office.
+Utilitaires généraux pour Office Day.
 Fonctions helper communes utilisées dans tout le projet.
 """
 

@@ -101,10 +101,10 @@ def main():
     """Fonction principale du testeur de sprites."""
     pygame.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
-    pygame.display.set_caption("Sprite Tester - A Day at the Office")
+    pygame.display.set_caption("Sprite Tester - Office Day")
     clock = pygame.time.Clock()
     
-    print("🎨 Sprite Tester - A Day at the Office")
+    print("🎨 Sprite Tester - Office Day")
     print("=====================================")
     print("Contrôles :")
     print("  F5 : Recharger les données")

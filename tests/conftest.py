@@ -1,5 +1,5 @@
 """
-Configuration pytest pour A Day at the Office.
+Configuration pytest pour Office Day.
 Fixtures communes et setup des tests.
 """
 

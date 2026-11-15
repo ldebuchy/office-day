@@ -12,7 +12,7 @@ WHITE = (255, 255, 255)
 
 # === NOUVELLES CONSTANTES GAMEPLAY ===
 # Titre du jeu
-GAME_TITLE = "A Day at the Office"
+GAME_TITLE = "Office Day"
 
 # Configuration temporelle
 START_TIME = "08:30"

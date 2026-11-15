@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "Manifest des assets pour A Day at the Office",
+  "description": "Manifest des assets pour Office Day",
   "images": {
     "player_idle": {
       "path": "sprites/player_idle.png",

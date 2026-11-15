@@ -1,5 +1,5 @@
 """
-Composants UI réutilisables pour A Day at the Office.
+Composants UI réutilisables pour Office Day.
 Boutons, menus, panneaux et autres widgets génériques.
 """
 

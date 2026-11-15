@@ -1,5 +1,5 @@
 """
-Gestion du bâtiment et des étages pour A Day at the Office.
+Gestion du bâtiment et des étages pour Office Day.
 Vue de coupe avec rendu contextuel des étages visibles.
 """
 

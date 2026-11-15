@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Outil de vérification des assets pour A Day at the Office.
+Outil de vérification des assets pour Office Day.
 Vérifie que tous les assets du manifest existent et affiche un rapport.
 """
 
@@ -155,7 +155,7 @@ class AssetChecker:
         try:
             with open(output_file, 'w', encoding='utf-8') as f:
                 f.write("RAPPORT DE VÉRIFICATION DES ASSETS\n")
-                f.write("A Day at the Office\n")
+                f.write("Office Day\n")
                 f.write("="*50 + "\n\n")
                 
                 # Statistiques
@@ -193,7 +193,7 @@ class AssetChecker:
 
 def main():
     """Fonction principale."""
-    print("🎨 Asset Checker - A Day at the Office")
+    print("🎨 Asset Checker - Office Day")
     print("="*50)
     
     checker = AssetChecker()

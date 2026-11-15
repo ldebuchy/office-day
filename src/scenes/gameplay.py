@@ -1,5 +1,5 @@
 """
-Scène de gameplay principale pour A Day at the Office.
+Scène de gameplay principale pour Office Day.
 Gère le jeu complet avec building, ascenseur, tâches, etc.
 """
 

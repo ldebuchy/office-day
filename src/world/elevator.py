@@ -1,5 +1,5 @@
 """
-Système d'ascenseur pour A Day at the Office.
+Système d'ascenseur pour Office Day.
 Gère le mouvement, les portes, et les animations de l'ascenseur.
 """
 

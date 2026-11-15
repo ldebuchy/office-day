@@ -1,5 +1,5 @@
 """
-Scène de pause pour A Day at the Office.
+Scène de pause pour Office Day.
 Menu pause avec options de reprise et retour au menu.
 """
 

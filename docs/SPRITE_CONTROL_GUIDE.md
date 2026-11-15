@@ -1,4 +1,4 @@
-# Guide de Contrôle des Sprites - A Day at the Office
+# Guide de Contrôle des Sprites - Office Day
 
 ## 🎯 Vue d'ensemble
 
